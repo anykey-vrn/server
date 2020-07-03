@@ -12,7 +12,7 @@ public class Client extends JFrame implements ActionListener, TCPConnectionListe
     private final JTextArea jTextArea = new JTextArea();
     private final JTextField nick = new JTextField("Введите ник...");
     private final JTextField message = new JTextField();
-    private TCPConnection tcpConnection;
+    private final TCPConnection tcpConnection;
 
     public Client() throws IOException {
         message.addActionListener(this);

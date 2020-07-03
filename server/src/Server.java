@@ -1,3 +1,4 @@
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ public class Server implements TCPConnectionListener{
         System.out.println("Разослонное всем клиентам сообщение: " + s);
         final int size = connections.size();
         for (int i = 0; i<size;i++) connections.get(i).sendMessage(s);
+        write(s, true);
     }
 
     @Override
@@ -51,10 +53,22 @@ public class Server implements TCPConnectionListener{
     }
 
     public static void main(String[] args){
+        write("", false);
         new Server();
     }
 
+    public static void write(String log,Boolean l){
+        try(FileWriter writer = new FileWriter("log.txt", l))
+        {
+            // запись всей строки
+            writer.append(log + '\n');
+            writer.flush();
+        }
+        catch(IOException ex){
 
+            System.out.println(ex.getMessage());
+        }
+    }
 
 
 }

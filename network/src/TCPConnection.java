@@ -34,6 +34,7 @@ public class TCPConnection {
                 }
             }
         });
+        thread.start();
         //String message = in.readLine();
         try {
             String message = in.readLine();
@@ -65,8 +66,7 @@ public class TCPConnection {
     }
     @Override
     public String toString() {
-        return "Mesage: "+socket.getInetAddress()+": "+socket.getPort();
+        return "Message: "+socket.getInetAddress()+": "+socket.getPort();
     }
-
 
 }
