@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+
 public class Client extends JFrame implements ActionListener, TCPConnectionListener {
     private static final String IP_ADDRES = "127.0.0.1"; //для ip
     private static final int  PORT = 5000;               //для номера порта
